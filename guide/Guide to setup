@@ -1,0 +1,99 @@
+Phase 1: Preparation (Gathering Your Tools)
+Before touching any code, you need to set up the accounts and services that will power the bot.
+
+Activate the VPN (Crucial):
+
+Turn on your VPN (e.g., NordVPN or Proton) on your PC and connect to a server in Switzerland or the Netherlands.
+
+Verification Check: Go to ipinfo.io in your browser to confirm your IP address reflects the chosen country.
+
+Prepare the Wallet:
+
+Ensure you have the MetaMask extension installed in your browser.
+
+Make sure you have your 100 USDC and a couple of MATIC/POL (to pay for network micro-fees) on the Polygon Mainnet.
+
+Export your Private Key from MetaMask. (Never share this with anyone or upload it online).
+
+Generate Polymarket APIs:
+
+With the VPN active, log into Polymarket.com.
+
+Go to Settings -> API Keys.
+
+Create a new key and securely save the API Key, the Secret, and the Passphrase. They will only be shown to you once!
+
+Get the "Brains" (Alchemy & Groq):
+
+Go to Alchemy.com, create a free account, set up a new App (choose Polygon Mainnet as the network), and copy the RPC URL (the link starting with https://).
+
+Go to console.groq.com, log in, navigate to "API Keys," and generate a new key to access Llama 3 for free.
+
+Phase 2: Building the Base (The Files)
+Now let's create the bot's home on your computer.
+
+Create a new folder on your Desktop (e.g., name it PolyBot).
+
+Inside this folder, create these 3 empty text files (ensure they don't have hidden extensions like .txt.py):
+
+main.py
+
+requirements.txt
+
+.env
+
+Paste the code:
+
+Open main.py with Notepad (or better, a real code editor like VS Code) and paste the complete Python code I generated for you earlier.
+
+Open requirements.txt and paste the list of the 5 required libraries.
+
+Phase 3: The Secret Core (The .env file)
+This is the most delicate step. If there is a typo here, the bot won't connect.
+
+Open the .env file and fill in each field exactly as shown, without any weird spacing or quotation marks. It should look like this:
+
+Snippet di codice
+PK=paste_your_long_metamask_private_key_here
+POLY_ADDRESS=0xYourPublicMetamaskAddressHere
+CLOB_API_KEY=your_polymarket_api_key_here
+CLOB_SECRET=your_polymarket_secret_here
+CLOB_PASSPHRASE=your_polymarket_passphrase_here
+
+ALCHEMY_RPC_URL=https://polygon-mainnet.g.alchemy.com/v2/your_alchemy_key_here
+GROQ_API_KEY=gsk_your_groq_key_here
+
+STARTING_CAPITAL=100.0
+Phase 4: The Launch (Ignition)
+We are ready. It's time to run everything.
+
+Open your Terminal (or Command Prompt):
+
+On Windows: Search for cmd in the Start menu.
+
+On Mac: Search for Terminal using Spotlight.
+
+Navigate to the bot's folder:
+Type cd followed by the path to your folder (e.g., cd Desktop/PolyBot) and press Enter.
+
+Install the "Fuel" (The Dependencies):
+In the terminal, type this command and press Enter:
+
+Bash
+pip install -r requirements.txt
+Wait for it to download and install everything. It should take about a minute.
+
+Start the Bot:
+(Final check: Is the VPN on and set to Switzerland? Good.)
+Type this command and press Enter:
+
+Bash
+python main.py
+What happens next?
+If you did everything correctly, your terminal will come to life and you will start seeing:
+
+🚀 Inizializzazione Polymarket Sniper Bot... (Or the English equivalent if you translated the print statements).
+
+✅ Connesso a Polygon...
+
+The bot will then enter a silent standby mode, scanning blocks until it spots a transaction from one of the Whale addresses you put in the code.
